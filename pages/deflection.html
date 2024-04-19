@@ -1,0 +1,383 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="manifest" href="/manifest.json">
+
+    <title> SIP Roof Panel Selection</title>
+    <link rel="shortcut icon" href="../img/512x512app-icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <a rel="stylesheet" href="../css/output.css">
+   
+      <body class=" bg-gradient-to-tl from-yellow-200 to-orange-500">
+    
+
+       
+      </head>
+    <script>
+      function validate() {
+
+         // s = document.forms["input_form"]["sterm"].value;
+        // p = document.forms["input_form"]["pterm"].value;
+        
+        // const s = document.getElementById('sterm').value;
+        // const p = document.getElementById('pterm').value;
+
+          
+          const d = parseFloat(document.getElementById("depth").value);
+          const t = parseFloat(document.getElementById("facet").value);
+          const l = parseFloat(document.getElementById("Loading").value);
+          const s = parseFloat(document.getElementById("sterm").value);
+          const p = parseFloat(document.getElementById("pterm").value);
+
+
+          const AcG = 2.0 * Math.pow((d - t), 2) / Math.pow((d - 2 * t), 2) * 1000 * (d - 2 * t)
+          const EI = 3800 * 1000 * (Math.pow(d, 3) - Math.pow(d - 2 * t, 3)) / 12
+          const EIREIN = 100 * 8000 * (Math.pow(d - 2 * t, 3)) / 12
+          const LSmm = s * 1000 / Math.cos(p / 57)
+          const WS = l * Math.cos(p / 57) / 100
+          const BEFF = Math.tanh(1.57 * Math.sqrt(3800 / (3800 / 2 / (1 + .24))) * (1200 - 100) / (LSmm)) / ((1.57 * 1 / LSmm) * Math.sqrt(3800 / (3800 / 2 / (1 + .24))))
+
+
+          const Deflection = 3.3 * 5 * WS * Math.pow(LSmm, 4) / 384 / EI + 8 * WS * Math.pow(LSmm, 2) / 8 / AcG
+          const REINDeflection = 1.2 * 5 * WS * Math.pow(LSmm, 4) / 384 / (BEFF * EI / 3.3 / 1000 + EIREIN / 1.8) + WS * Math.pow(LSmm, 2) * (1 + 0.8) / 8 / (100 * (d - 2 * t)) / 690
+          const REINDeflection2SP = 0.6 * REINDeflection
+          const D2SPAN = 0.6 * Deflection;
+          const DHIGH = "PANEL INADEQUATE";
+          const DHIGH1 = "PANEL INADEQUATE";
+          const DHIGH2 = "PANEL INADEQUATE";
+          const D2SPREIN = "PANEL INADEQUATE";
+
+          // Calculate deflection bending and shear included
+          if (Deflection <= l * 1000 / 250 && Deflection <= 12) {
+              document.getElementById("Deflection").value = Deflection.toFixed(1);
+              document.getElementById("2SPDeflection").value = D2SPAN.toFixed(1);
+              document.getElementById("REINDeflection").value = REINDeflection.toFixed(1);
+              document.getElementById("REINDeflection2SP").value = REINDeflection2SP.toFixed(1);
+          } else if (D2SPAN <= l * 1000 / 250 && D2SPAN <= 12) {
+              document.getElementById("Deflection").value = DHIGH;
+              document.getElementById("2SPDeflection").value = D2SPAN.toFixed(1);
+              document.getElementById("REINDeflection").value = REINDeflection.toFixed(1);
+              document.getElementById("REINDeflection2SP").value = REINDeflection2SP.toFixed(1);
+          } else if (REINDeflection <= l * 1000 / 250 && REINDeflection <= 12) {
+              document.getElementById("Deflection").value = DHIGH;
+              document.getElementById("2SPDeflection").value = DHIGH1;
+              document.getElementById("REINDeflection").value = REINDeflection.toFixed(1);
+              document.getElementById("REINDeflection2SP").value = REINDeflection2SP.toFixed(1);
+          } else if (REINDeflection2SP <= l * 1000 / 250 && REINDeflection2SP <= 12) {
+              document.getElementById("Deflection").value = DHIGH;
+              document.getElementById("2SPDeflection").value = DHIGH1;
+              document.getElementById("REINDeflection").value = DHIGH2;
+              document.getElementById("REINDeflection2SP").value = REINDeflection2SP.toFixed(1);
+          } else {
+              document.getElementById("Deflection").value = DHIGH;
+              document.getElementById("2SPDeflection").value = DHIGH1;
+              document.getElementById("REINDeflection").value = DHIGH2;
+              document.getElementById("REINDeflection2SP").value = D2SPREIN;
+          }
+
+          document.getElementById("resultd").textContent = `depth(mm):   ${d.toFixed(0)}`;
+          document.getElementById("resultt").textContent = `face 't'(mm):  ${t.toFixed(0)}`;
+          document.getElementById("resultl").textContent = `loading (kg/m²):   ${l.toFixed(0)}`;
+          document.getElementById("results1").textContent = `span(m): ${s.toFixed(2)}`;
+          document.getElementById("resultp").textContent = `pitch(deg):   ${p.toFixed(0)}`;
+
+
+          document.getElementById("resultAcG").textContent = `ACG: ${AcG.toFixed(2)}`;
+          document.getElementById("resultEI").textContent = `EI: ${EI.toFixed(2)}`;
+          document.getElementById("resultEIREIN").textContent = `EIREIN: ${EIREIN.toFixed(2)}`;
+          document.getElementById("resultLSmm").textContent = `LSmm: ${LSmm.toFixed(2)}`;
+          document.getElementById("resultWS").textContent = `WS: ${WS.toFixed(2)}`;
+          document.getElementById("resultBEFF").textContent = `BEFF: ${BEFF.toFixed(2)}`;
+          document.getElementById("resultDeflection").textContent = `Deflection: ${Deflection.toFixed(2)}`;
+          document.getElementById("resultREINDeflection").textContent = `REINDeflection: ${REINDeflection.toFixed(2)}`;
+          document.getElementById("resultREINDeflection2SP").textContent = `REINDeflection2SP: ${REINDeflection2SP.toFixed(2)}`;
+          document.getElementById("resultD2SPAN").textContent = `D2SPAN: ${D2SPAN.toFixed(2)}`;
+
+
+      }
+
+      function handleClear() {
+          document.getElementById("Loading").value = "";
+          document.getElementById("depth").value = "";
+          document.getElementById("facet").value = "";
+          document.getElementById("sterm").value = "";
+          document.getElementById("pterm").value = "";
+
+
+          document.getElementById("resultd").textContent = ``;
+          document.getElementById("resultt").textContent = ``;
+          document.getElementById("resultl").textContent = ``;
+          document.getElementById("results1").textContent = ``;
+          document.getElementById("resultp").textContent = ``;
+
+      document.getElementById("Deflection").value = "";
+      document.getElementById("2SPDeflection").value = "";
+      document.getElementById("REINDeflection").value = "";
+      document.getElementById("REINDeflection2SP").value = "";
+
+    }
+     
+  
+    </script>
+
+</head>
+          
+        <body>
+        
+          
+<div class=" px-6 py-6 flex justify-center">
+<div class="rounded overflow-hidden text-center  bg-clip-border bg-gradient-to-b p-3 from-yellow-200 to-white w-96 h-42 rounded-sd shadow-xl shadow-yellow-600 border-2 border-x-2 border-orange-800 " style = "font-size:17px">     
+      
+           
+            <div class = "flex justify-center py-4" >       
+            <div class ="max-w-sm h-18 p-4 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-400 w-96 shadow-xl shadow-yellow-600  border-orange-800 style animate-spin-fast" style = "font-size:17px">
+            <a href="">STRUCTURALLY INSULATED PANELS (SIPS)<br>
+              <strong>ROOF</strong> PANEL SELECTION</a> </div></div>
+         </li>
+       
+            </ul>
+
+              <br>
+              <div><p> Enter parameters and calculate deflection. 
+              Select Panel thickness (depth), face thickness,
+              loading, span and pitch. Results output below.</p> </div> 
+           
+           
+            <div class = "flex justify-center py-4" >       
+            <div class="max-w-sm h-18 p-4 t-6 rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-white to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" style = "font-size:17px";>
+            <a href="homepage.html">Navigate to Home Page</a> </div></div>
+         </li>
+        
+         <div class = "flex justify-center py-4 " >       
+         <div class="max-w-sm h-18 p-4 t-6 rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-white to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" style = "font-size:17px";>
+            <a href= "floordeflection.html">Navigate to Floor Panel Selection</a> </div></div>
+            </li>
+            </ul>
+            </div>   </div>
+<br>
+  
+  <div class="px-2 py-1 flex justify-center">
+            <div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
+  <img class="w-full " src="../img/230113-SIPS-CHP2-images-Fig-2-3-2-Roof-Panel-Example-Bending-APP-Section.jpg" ></img>
+
+ 
+      <form name="input_form" action="javascript:validate ();">
+      <select id="depth" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
+      style="font-size:14px;"  onchange="validate ()">
+        <option value="" disabled selected>Select Thickness (depth) of SIP Panel, d</option>
+
+        <option value="95.0">95mm SIPit/Sips UK</option>
+         <option value="97.0">97mm Future SIPs</option>
+         <option value="100.0">100mm Hemsec</option>
+         <option value="110.0">110mm SBS</option>
+         <option value="120.0">120mm SIPit/Eco SIP </option>
+         <option value="122.0">122mm Future SIPs</option>
+         <option value="125.0">125mm SBS/Hemsec</option>
+         <option value="142.0">142mm Kingspan</option>
+         <option value="145.0">145mm SIPit/Eco SIP/Sips UK </option>
+         <option value="147.0">147mm Future SIPs</option>
+         <option value="150.0">150mm SBS/Hemsec</option>
+         <option value="170.0">170mm SIPit/EcoSIPs/Sips UK</option>
+         <option value="172.0">172mm Kingspan/Future SIPs</option>
+         <option value="175.0">175mm SBS/Hemsec</option>
+         <option value="195.0">195mm SIPit/EcoSIP</option>
+         <option value="197.0">197mm Future SIPs</option>
+         <option value="200.0">200mm SBS/Hemsec/Future SIPs</option>
+         <option value="220.0">220mm SIPit/EcoSIP </option>
+         <option value="225.0">225mm SBS/Hemsec</option>
+         <option value="245.0">245mm SIPit</option>
+         <option value="250.0">250mm SBS</option>
+         
+                     </select>
+                     <br><br>
+                    
+                    <select id="facet"class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
+         style = "font-size:14px"  onchange="validate ()">
+        <option value="" disabled selected>Select Face Thickness, t</option>
+        
+        <option value="11.0">11mm SBS/SIPit/Future SIPs</option>
+        <option value="12.0">12mm</option>
+        <option value="15.0">15mm Kingspan/Hemsec</option>
+                    </select></form>
+  </div>
+  <div>
+    
+  </div>
+</div>
+
+
+                    <br><br>
+                    <div class="px-1 py-1 flex justify-center">
+            <div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
+  <img class="w-full" src="../img/230113-SIPS-CHP2-images-Fig-2-3-2-Roof-Panel-Example-Bending-App-Elevation_Fig 2.3.1 Slope Length of Panel copy.jpg" ></img>
+  <img class="w-full " src="../img/240301_Two_or_more_span_panel_elevation-33.jpg" ></img>
+  <br>
+  <div class=" px-2 py-4">
+                    <form name="input_form" action="javascript:validate ();">
+                    <select id="Loading" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
+                    style = "font-size:15px;" onchange="validate ()">
+         <option value="" disabled selected>Select Loading</option>
+         <option value="80.0">Light: 80kg/m² Membrane/standing seam</option>
+         <option value="120.0">Medium: 120kg/m² Slate tiles/sedum 40mm roll</option>
+         <option value="140.0">Heavy: 140kg/m² Clay tiles/concrete tiles</option>
+         <option value="225.0">Green Roof: 225kg/m² Ply with 150kg/m² green roof</option>
+    </select>
+    </form>
+                      <br>
+    <i><strong>Input roof panel loading from options</strong></i>&nbsp;
+  <br> ● 80kg/m² - Lightweight e.g. standing seam/membrane
+  <br> ● 120kg/m² - Medium: slate tiles
+  <br> ● 140kg/m² - Heavy: clay/concrete tiles/40mm sedum
+  <br> ● 225kg/m² - Green Roof system & 18mm MDP Ply
+  <br> <br>Live or imposed load for roofs is<strong> not added</strong> for this long term loading check.
+  For OSB SIP panels on roofs the short term strength is generally not an issue, except in areas with high snow load.
+  Or roofs with access for maintenance may need higher live loads to be considered. This would need checks by a structural engineer.<p></p>
+  </div></div> 
+  <div>
+    
+  </div>
+</div>
+                
+             
+    
+            <br>
+            <div class="px-2 py-1 flex justify-center">
+            <div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
+  <img class="w-full" src="../img/240228-floor-panel-32-32-32.jpg" ></img> 
+  <div class="px-1 py-4">
+  <select id="sterm" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
+  style="font-size:15px;" onchange="validate ()">
+                    <option value="" disabled selected>Select Span of SIP Panel, L</option>
+              
+
+         <option value="0.75">0.75m</option>
+         <option value="1.00">1.00m</option>
+         <option value="1.25">1.25m</option>
+         <option value="1.50">1.50m</option>
+         <option value="1.75">1.75m</option>
+         <option value="2.00">2.00m</option>
+         <option value="2.25">2.25m</option>
+         <option value="2.40">2.40m</option>
+         <option value="2.50">2.50m</option>
+         <option value="2.75">2.75m</option>
+         <option value="3.00">3.00m</option>
+         <option value="3.25">3.25m</option>
+         <option value="3.50">3.50m</option>
+         <option value="3.75">3.75m</option>
+         <option value="4.00">4.00m</option>
+         <option value="4.25">4.25m</option>
+         <option value="4.50">4.50m</option>
+         <option value="4.75">4.75m</option>
+         <option value="5.00">5.00m</option>
+         <option value="5.25">5.25m</option>
+         <option value="5.50">5.50m</option>
+         <option value="5.75">5.75m</option>
+         <option value="6.00">6.00m</option>
+
+         
+                     </select>
+                     
+    </div>  
+  <p>Span is the <strong><i>horizontal distance </i></strong>between supports. A long span is 4m or more.</p><br>
+
+  <select id="pterm" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-64 shadow-xl shadow-yellow-600  border-orange-800  style" 
+  style = "font-size:15px"  onchange="validate ()">
+                    <option value="" disabled selected>Select Pitch of SIP Panel, p</option>
+              
+
+         <option value="0.00">0&deg;</option>
+         <option value="5.00">5&deg;</option>
+         <option value="10.00">10&deg;</option>
+         <option value="15.00">15&deg;</option>
+         <option value="20.00">20&deg;</option>
+         <option value="25.00">25&deg;</option>
+         <option value="30.00">30&deg;</option>
+         <option value="35.00">35&deg;</option>
+         <option value="40.00">40&deg;</option>
+         <option value="45.00">45&deg;</option>
+         <option value="50.00">50&deg;</option>
+         <option value="60.00">60&deg;</option>
+                    
+                    
+                     </select>
+  
+ 
+    
+    
+   <br>
+  <br>
+    <p>Pitch is the <strong><i>roof angle to the horizontal</i></strong>.
+    <br>(e.g 0&deg; is flat, 15-30&deg; is low pitch and 45-60&deg; is steep pitch)</p>
+    </div></div> </div> <div><br><br/>
+        
+  
+                     
+                     
+        <div>
+        <div class="px-1 py-2 flex justify-center">
+            <div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
+  <div class="flex px-6 py-4">
+
+  <button class="max-w-sm h-10 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-red-500 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white" style="font-size:14px;" onclick="handleClear ()"><strong>Clear</strong></button>
+  </div>
+  <div id="results" class="px-6 py-2">
+            <div class = "max-w-sm h-8 t-6 text-right p-1 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-200 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white"id="resultd" > </div>
+            <div class = "max-w-sm h-8 t-6 text-right p-1 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-200 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white"id="resultt"> </div>
+            <div class = "max-w-sm h-8 t-6 text-right p-1 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-200 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white"id="resultl"></div>
+            <div class = "max-w-sm h-8 t-6 text-right p-1 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-200 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white"id="results1"></div>
+            <div class = "max-w-sm h-8 t-6 text-right p-1 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-200 w-48 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white"id="resultp"></div></div>
+
+ <div class="px-4 py-4">
+  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP splines" type="text" id="Deflection" size={30} /> mm
+  <br>Deflection (Single Span)
+  <br><br>
+  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP Splines Multispan" type="text" id="2SPDeflection" size={30} /> mm
+  <br>Deflection (Two Span or multiple span)
+  <br><br>
+  <input class="placeholder:text-red-500  text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: Timber splines" type="text" id="REINDeflection" size={30} /> mm
+  <br>Reinforced Deflection (Reinforced with solid timber splines in joints)
+  <br><br>
+  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-1 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder=" Deflection: Timber splines Multispan" type="text" id="REINDeflection2SP" size={30} /> mm
+  <br>Reinforced Deflection (Two Span or Multiple Span &amp; Reinforced with solid timber splines in joints)   
+  <img class="w-full " src="../img/240301_Panel_Sections_Standard_Reinforced.jpg" ></img>
+
+  </div></div></div>
+
+
+       
+           <p>  Result output</p>
+            <div id="results1">
+            <div id="resultd"></div>
+            <div id="resultt"></div>
+            <div id="results1"></div>
+            <div id="resultl"></div>
+            <div id="resultp"></div>
+                <div id="resultAcG"></div>
+                <div id="resultEI"></div>
+                <div id="resultEIREIN"></div>
+                <div id="resultLSmm"></div>
+                <div id="resultWS"></div>
+                <div id="resultBEFF"></div>
+                <div id="resultDeflection"></div>
+                <div id="resultD2SPAN"></div>
+                <div id="resultREINDeflection"></div>
+                <div id="resultREINDeflection2SP"></div>
+                <div id="resultDHIGH"></div>
+                <div id="resultD2SPREIN"></div>
+                
+            </div> 
+            
+            </div></div>
+        <br>
+     
+        <script src="/js/ui.js"></script>
+        <script src="/js/app.js"></script>
+         
+  </body>
+
+</html>

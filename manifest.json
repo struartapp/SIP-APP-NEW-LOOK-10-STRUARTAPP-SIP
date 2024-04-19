@@ -1,0 +1,27 @@
+  {
+    "name": "SIP Panel Selection",
+    "short_name": "SIPApp",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#FFE9D2",
+    "theme_color": "#FFE1C4",
+    "orientation": "portrait-primary",
+    "icons": [
+    
+      {
+        "src": "img/192x192app-icon.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },  
+      {
+        "src": "img/384x384app-icon.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "img/512x512app-icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
