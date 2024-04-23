@@ -122,9 +122,11 @@
           document.getElementById("resultWS").textContent = `WS: ${WS.toFixed(2)}`;
           document.getElementById("resultBEFF").textContent = `BEFF: ${BEFF.toFixed(2)}`;
           document.getElementById("resultDeflection").textContent = `Deflection: ${Deflection.toFixed(2)}`;
+		  document.getElementById("resultDFST").textContent = `DFST: ${DFST.toFixed(2)}`;
           document.getElementById("resultREINDeflection").textContent = `REINDeflection: ${REINDeflection.toFixed(2)}`;
           document.getElementById("resultREINDeflection2SP").textContent = `REINDeflection2SP: ${REINDeflection2SP.toFixed(2)}`;
           document.getElementById("resultD2SPAN").textContent = `D2SPAN: ${D2SPAN.toFixed(2)}`;
+		
 		  
 		}
 
@@ -157,18 +159,24 @@
         <body>
         
 			<div class=" px-6 py-6 flex justify-center">
-				<div class="rounded overflow-hidden text-center  bg-clip-border bg-gradient-to-b p-3 from-yellow-200 to-white w-96 h-42 rounded-sd shadow-xl shadow-yellow-600 border-2 border-x-2 border-orange-800 " 
+				<div class="rounded overflow-hidden text-center  bg-clip-border bg-gradient-to-b p-3 from-yellow-100 to-blue-300 w-96 h-42 rounded-sd shadow-xl shadow-yellow-600 border-2 border-x-2 border-orange-800 " 
 				style= "font-size:17px;">     
-						 
+						            
+				<!-- <div class = " justify-center items-center rounded-sd shadow-xl shadow-yellow-800 border-1 border-orange-900" >  -->
+                    <img class="flex opacity-30 justify-center items-center rounded-sd shadow-xl shadow-yellow-800 border-1 border-orange-800 " src= "../img/240301_Colon_Cover-royal-app-front-coverAPP.jpg" ></img>
+					<div class = " p-4 font-medium" >
+					<strong>FLOOR</strong> PANEL SELECTION</a> </div></div>
+				</div> 
 							
-							<div class = "flex justify-center py-4" >       
-							<div class ="max-w-sm h-18 p-4 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-orange-400 w-96 shadow-xl shadow-yellow-600  border-orange-800 style animate-spin-fast" 
+							<!-- <div class = "flex justify-center py-4" >       
+							<div class ="max-w-sm h-18 p-4 t-6 rounded overflow-hidden bg-gradient-to-b  from-yellow-100 to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 style animate-spin-fast" 
 							style="font-size:17px;">
-							<a href="">STRUCTURALLY INSULATED PANELS (SIPS)<br>
-							  <strong>FLOOR</strong> PANEL SELECTION</a> </div></div>
-						
-					   
+							<a href="">STRUCTURALLY INSULATED PANELS (SIPS)<br> -->
 							
+						
+								<div class = "px-2 py-1 flex justify-center" >
+								<div class="rounded overflow-hidden text-center  bg-clip-border bg-gradient-to-b p-3 from-yellow-100 to-yellow-300 w-96 h-42 rounded-sd shadow-xl shadow-yellow-600 border-2 border-x-2 border-orange-800 " 
+				style= "font-size:16px;">    
 				
 							  <br>
 							  <div><p > Enter parameters and calculate deflection. 
@@ -176,19 +184,19 @@
 							  loading, span and pitch. Results output below.</p> </div> 
 							  
 							
-							<div class = "flex justify-center py-4" >       
-							<div class="max-w-sm h-18 p-4 t-6 rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-white to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" 
-							style="font-size:17px;">
-							<a href="homepage.html">Navigate to Home Page</a> </div></div>
+							<div class = "flex justify-center py-2" >       
+							<div class="max-w-sm h-18 p-4 t-6 font-medium rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-yellow-100 to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" 
+							style="font-size:16px;">
+							<a href="homepage.html">Navigate to Home Page</a> </div></div> 
 						
 						 
 						 <div class = "flex justify-center py-4 " >       
-						 <div class="max-w-sm h-18 p-4 t-6 rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-white to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" 
-						 style="font-size:17px;">
+						 <div class="max-w-sm h-18 p-4 t-6 font-medium rounded overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-yellow-100 to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" 
+						 style="font-size:16px;">
 							<a href="deflection.html">Navigate to Roof Panel Selection</a> </div></div>
-							</li>
+						
 							
-							</div>   </div>
+							</div>   </div> </div>
 				<br>
 				
 				
@@ -198,34 +206,34 @@
 		  <img class="w-full " src="../img/230113-SIPS-CHP2-images-Fig-2-3-2-Roof-Panel-Example-Bending-APP-Section.jpg" ></img>
 		
 		 
-			  <form name="input_form" action="javascript:validate ();">
-			  <select id="depth" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
-			  style="font-size:14px;"  onchange="validate ()">
-				<option value="" disabled selected>Select Thickness (depth) of SIP Panel, d</option>
-		
-				<option value="95.0">95mm SIPit/Sips UK</option>
-				 <option value="97.0">97mm Future SIPs</option>
-				 <option value="100.0">100mm Hemsec</option>
-				 <option value="110.0">110mm SBS</option>
-				 <option value="120.0">120mm SIPit/Eco SIP </option>
-				 <option value="122.0">122mm Future SIPs</option>
-				 <option value="125.0">125mm SBS/Hemsec</option>
-				 <option value="142.0">142mm Kingspan</option>
-				 <option value="145.0">145mm SIPit/Eco SIP/Sips UK </option>
-				 <option value="147.0">147mm Future SIPs</option>
-				 <option value="150.0">150mm SBS/Hemsec</option>
-				 <option value="170.0">170mm SIPit/EcoSIPs/Sips UK</option>
-				 <option value="172.0">172mm Kingspan/Future SIPs</option>
-				 <option value="175.0">175mm SBS/Hemsec</option>
-				 <option value="195.0">195mm SIPit/EcoSIP</option>
-				 <option value="197.0">197mm Future SIPs</option>
-				 <option value="200.0">200mm SBS/Hemsec/Future SIPs</option>
-				 <option value="220.0">220mm SIPit/EcoSIP </option>
-				 <option value="225.0">225mm SBS/Hemsec</option>
-				 <option value="245.0">245mm SIPit</option>
-				 <option value="250.0">250mm SBS</option>
-				 
-							 </select>
+		  <form name="input_form" action="javascript:validate ();">
+			<select id="depth" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
+			style="font-size:14px;"  onchange="validate ()">
+			  <option value="" disabled selected>Select Thickness (depth) of SIP Panel, d</option>
+	  
+			  <option value="95.0">95mm SIPit/Sips UK</option>
+			   <option value="97.0">97mm Future SIPs</option>
+			   <option value="100.0">100mm Hemsec</option>
+			   <option value="110.0">110mm SBS</option>
+			   <option value="120.0">120mm SIPit/Eco SIP </option>
+			   <option value="122.0">122mm Future SIPs</option>
+			   <option value="125.0">125mm SBS/Hemsec</option>
+			   <option value="142.0">142mm Kingspan</option>
+			   <option value="145.0">145mm SIPit/Eco SIP/Sips UK </option>
+			   <option value="147.0">147mm Future SIPs</option>
+			   <option value="150.0">150mm SBS/Hemsec</option>
+			   <option value="170.0">170mm SIPit/EcoSIPs/Sips UK</option>
+			   <option value="172.0">172mm Kingspan/Future SIPs</option>
+			   <option value="175.0">175mm SBS/Hemsec</option>
+			   <option value="195.0">195mm SIPit/EcoSIP</option>
+			   <option value="197.0">197mm Future SIPs</option>
+			   <option value="200.0">200mm SBS/Hemsec/Future SIPs</option>
+			   <option value="220.0">220mm SIPit/EcoSIP </option>
+			   <option value="225.0">225mm SBS/Hemsec</option>
+			   <option value="245.0">245mm SIPit</option>
+			   <option value="250.0">250mm SBS</option>
+			   
+						   </select>
 							 <br><br>
 							
 							<select id="facet"class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-80 shadow-xl shadow-yellow-600  border-orange-800  style" 
@@ -372,6 +380,7 @@
 							  <div id="resultWS"></div>
 							  <div id="resultBEFF"></div>
 							  <div id="resultDeflection"></div>
+							  <div id="resultDFST"></div>
 							  <div id="resultD2SPAN"></div>
 							  <div id="resultREINDeflection"></div>
 							  <div id="resultREINDeflection2SP"></div>
