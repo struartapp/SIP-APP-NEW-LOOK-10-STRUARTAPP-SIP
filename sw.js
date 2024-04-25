@@ -3,9 +3,9 @@ const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
   '/',
   '/index.html',
-  '/pages/homepage.html',
-  '/pages/floordeflection.html',
-  '/pages/deflection.html',
+  // '/pages/homepage.html',
+  // '/pages/floordeflection.html',
+  // '/pages/deflection.html',
   '/js/app.js',
   '/js/ui.js',
   '/css/output.css',
