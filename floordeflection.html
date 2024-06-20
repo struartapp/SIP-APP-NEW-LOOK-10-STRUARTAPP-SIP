@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="manifest" href="/manifest.json">
+	<link rel="manifest" crossorigin="use-credentials" href="manifest.json"/>
 
 	<title> SIPs Floor Panel Selection</title>
 	<link rel="shortcut icon" href="../img/512x512app-icon.png" />
@@ -162,7 +162,7 @@
 				<div class="rounded overflow-hidden text-center  bg-clip-border bg-gradient-to-b p-2 from-yellow-100 to-blue-300 w-96 h-42 rounded-sd shadow-xl shadow-yellow-600 border-2 border-x-2 border-orange-800 " 
 				style= "font-size:17px;">     
 						            
-                    <img class="opacity-70 justify-center items-center rounded-sd shadow-xl shadow-yellow-800 border-1 border-orange-800  " src= "../img/240424-SIPS_APP-images_Floor panel selection.jpg" ></img>
+                    <img class="opacity-70 justify-center items-center rounded-sd shadow-xl shadow-yellow-800 border-1 border-orange-800  " src= "img/240424-SIPS_APP-images_Floor panel selection.jpg" ></img>
 					<div class = " py-5 font-medium" >
 					<strong>FLOOR</strong> PANEL SELECTION </div></div>
 				</div> 
@@ -198,10 +198,10 @@
 				 
 				  <div class="px-2 py-1 flex justify-center">
 					<div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
-		  <img class="w-full " src="../img/230113-SIPS-CHP2-images-Fig-2-3-2-Roof-Panel-Example-Bending-APP-Section.jpg" ></img>
+		  <img class="w-full " src="img/230113-SIPS-CHP2-images-Fig-2-3-2-Roof-Panel-Example-Bending-APP-Section.jpg" ></img>
 		
 		
-			<select id="depth" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-72 shadow-xl shadow-yellow-600  border-orange-800  style" 
+			<select id="depth" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-64 shadow-xl shadow-yellow-600  border-orange-800  style" 
 			style="font-size:14px;"  onchange="validate ()">
 			  <option value="" disabled selected>Select Thickness (depth) of SIP Panel, d</option>
 	  
@@ -217,7 +217,7 @@
 			   <option value="147.0">147mm Future SIPs</option>
 			   <option value="150.0">150mm SBS/Hemsec</option>
 			   <option value="170.0">170mm SIPit/EcoSIPs/Sips UK</option>
-			   <option value="172.0">172mm Kingspan/Future SIPs</option>
+			   <option value="164.0">164mm Kingspan/Future SIPs</option>
 			   <option value="175.0">175mm SBS/Hemsec</option>
 			   <option value="195.0">195mm SIPit/EcoSIP</option>
 			   <option value="197.0">197mm Future SIPs</option>
@@ -230,7 +230,7 @@
 						   </select>
 							 <br><br>
 							
-							<select id="facet"class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-72 shadow-xl shadow-yellow-600  border-orange-800  style" 
+							<select id="facet"class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-64 shadow-xl shadow-yellow-600  border-orange-800  style" 
 				 style = "font-size:14px"  onchange="validate ()">
 				<option value="" disabled selected>Select Face Thickness, t</option>
 				
@@ -249,11 +249,11 @@
 		<br><br>
 		<div class = "px-1 py-2 flex justify-center" >       
 		<div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white   shadow-xl shadow-yellow-600 border-2 border-orange-800">
-<img class="w-full" src="../img/240228-floor-panel-32-32-32.jpg" ></img>
-<img class="w-full" src="../img/240301_Two_or_more_span_panel_elevation-33.jpg" ></img><br>
+<img class="w-full" src="img/240228-floor-panel-32-32-32.jpg" ></img>
+<img class="w-full" src="img/240301_Two_or_more_span_panel_elevation-33.jpg" ></img><br>
 <div class=" right-2 px-2 py-2">
 				
-				<select id="Loading" class="max-w-sm h-12 p-1 t-6 rounded overflow-hidden bg-gradient-to-b from-white to-yellow-400 w-72 shadow-xl shadow-yellow-600  border-orange-800  style" 
+				<select id="Loading" class="max-w-sm h-12 p-1 t-6 rounded overflow-hidden bg-gradient-to-b from-white to-yellow-400 w-64 shadow-xl shadow-yellow-600  border-orange-800  style" 
 				style = "font-size:15px;" onchange="validate ()">
 										<option value="" disabled selected>Select Loading</option>
 										<option value="50.0">50kg/m² Domestic/Office light finishes</option>
@@ -284,9 +284,9 @@
 							<br>
 							<div class="px-2 py-1 flex justify-center">
 								<div class="max-w-sm rounded overflow-hidden  bg-white bg-gradient-to-b  from-yellow-100 to-white w-96 p-3   shadow-xl shadow-yellow-600 border-2 border-orange-800 ">
-					  <img class="w-full" src="../img/240228-floor-panel-32-32-32.jpg" ></img> 
+					  <img class="w-full" src="img/240228-floor-panel-32-32-32.jpg" ></img> 
 					  <div class="px-1 py-4">
-					  <select id="sterm" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-72 shadow-xl shadow-yellow-600  border-orange-800  style" 
+					  <select id="sterm" class="max-w-sm h-12 p-2 t-6 rounded overflow-hidden bg-gradient-to-b  from-white to-yellow-400 w-64 shadow-xl shadow-yellow-600  border-orange-800  style" 
 					  style="font-size:15px;" onchange="validate ()">
 										<option value="" disabled selected>Select Span of SIP Panel, L</option>
 								  
@@ -342,19 +342,22 @@
 									<div  id="results1"></div>
 									</div>
 						
-						 <div class="px-4 py-4">
-						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP splines" type="text" id="Deflection" size={30} /> mm
-						  <br>Deflection (Single Span)
+									<div class="px-4 py-4">
+										<img class="w-80" src="img/240228-floor-panel-32-32-32.jpg" ></img>
+										<img class="w-80" src="img/240301_Two_or_more_span_panel_elevation-33.jpg" ></img><br>
+									
+						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-64 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP splines" type="text" id="Deflection" style = "font-size:14px;"/> mm
+						  <br><strong>SINGLE SPAN</strong> Deflection 
 						  <br><br>
-						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP Splines Multispan" type="text" id="2SPDeflection" size={30} /> mm
-						  <br>Deflection (Two Span or multiple span)
+						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-64 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: SIP Splines Multispan" type="text" id="2SPDeflection" style="font-size:14px;"/> mm
+						  <br><strong>TWO SPAN or MULTIPLE SPAN</strong> Deflection 
 						  <br><br>
-						  <input class="placeholder:text-red-500  text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: Timber splines" type="text" id="REINDeflection" size={30} /> mm
-						  <br>Reinforced Deflection (Reinforced with solid timber splines in joints)
+						  <input class="placeholder:text-red-500  text-center bg-stone-100  border-blue-800 rounded-sd w-64 h-7 pr-4 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder="Deflection: Timber splines" type="text" id="REINDeflection" style="font-size:14px;"/> mm
+						  <br><strong>REINFORCED SINGLE SPAN </strong>Deflection (Reinforced with solid timber splines in joints)
 						  <br><br>
-						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-72 h-7 pr-1 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder=" Deflection: Timber splines Multispan" type="text" id="REINDeflection2SP" size={30} /> mm
-						  <br>Reinforced Deflection (Two Span or Multiple Span &amp; Reinforced with solid timber splines in joints)   
-						  <img class="w-full " src="../img/240301_Panel_Sections_Standard_Reinforced.jpg" ></img>
+						  <input class="placeholder:text-red-500 text-center bg-stone-100  border-blue-800 rounded-sd w-64 h-7 pr-1 shadow-lg border-2 hover:border-2 hover:border-red-400 hover:bg-yellow-100" placeholder=" Deflection: Timber splines Multispan" type="text" id="REINDeflection2SP" style="font-size:14px;" /> mm
+						  <br><strong>REINFORCED TWO SPAN <br> or MULTIPLE SPAN </strong><br>(Two Span or Multiple Span &amp; Reinforced with solid timber splines in joints)   
+						  <img class="w-full " src="img/240301_Panel_Sections_Standard_Reinforced.jpg" ></img>
 						
 						  </div></div></div>
 						
@@ -384,8 +387,9 @@
 							</div>
 						</div></div>
 						<br>
-						<script src="/js/ui.js"></script>
-                        <script src="/js/app.js"></script>
+
+						<script src="js/ui.js"></script>
+                        <script src="js/app.js"></script>
 </body>
 
 </html>

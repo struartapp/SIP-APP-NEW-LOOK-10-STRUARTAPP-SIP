@@ -1,13 +1,54 @@
   {
     "name": "SIP Panel Selection",
     "short_name": "SIPApp",
-    "start_url": "/index.html",
+    "start_url": "https://www.struartapp.com/sip",
     "display": "standalone",
     "background_color": "#FFE9D2",
     "theme_color": "#FFE1C4",
     "orientation": "portrait-primary",
     "icons": [
     
+      {
+        "src": "img/72x72app-icon.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "img/96x96app-icon.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "img/120x120app-icon.png",
+        "type": "image/png",
+        "sizes": "120x120"
+
+      },
+      {
+        "src": "img/128x128app-icon.png",
+        "type": "image/png",
+        "sizes": "128x128"
+
+      },
+            {
+        "src": "img/144x144app-icon.png",
+        "type": "image/png",
+        "sizes": "144x144"
+
+      },
+      {
+        "src": "img/152x152app-icon.png",
+        "type": "image/png",
+        "sizes": "152x152"
+
+      },
+       {
+        "src": "img/180x7180app-icon.png",
+        "type": "image/png",
+        "sizes": "180x180"
+
+      },
+
       {
         "src": "img/192x192app-icon.png",
         "type": "image/png",
@@ -23,5 +64,6 @@
         "type": "image/png",
         "sizes": "512x512"
       }
+      
     ]
   }

@@ -1,26 +1,42 @@
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          
-    <link rel="manifest" href="/manifest.json">
+      <!-- <a href='https://struartapp.com/sip' target='_blank'>Open PWA</a> -->
 
-    <title> SIPs Floor Panel Selection</title>
-    <link rel="shortcut icon" href="../img/512x512app-icon.png" />
+      <link rel="manifest" crossorigin="use-credentials" href="manifest.json"/>
+   
+
+      <title> SIPs Panel Selection APP</title>
+          <link rel="shortcut icon" type="image/png" href="../img/512x512app-icon.png"/>
+     
       <script src="https://cdn.tailwindcss.com"></script>
       <a rel="stylesheet" href="../css/output.css"></a>
 
-   
-
-      
-
-    
+      <!-- <meta http-equiv="refresh" content="0;url=https://www.struartapp.com/sip" />  -->
         
     </head>
+    <script>
 
+// if (navigator && navigator.serviceWorker) {
+//   navigator.serviceWorker.register('sw.js');
+// }
+// navigator.serviceWorker.register('sw.js', {
+//         // The scope cannot be parent to the script url
+//         scope: './'});
+// // This code executes in its own worker or thread
+// self.addEventListener("install", event => {
+//    console.log("Service worker installed");
+// });
+// self.addEventListener("activate", event => {
+//    console.log("Service worker activated");
+// });
+
+
+    </script>
 
     <body>
 
@@ -40,7 +56,7 @@
                         <div class = "flex justify-center py-4" >       
                         <div class="max-w-sm h-18 p-4 t-6 font-semibold rounded overflow-hidden bg-gradient-to-b  from-yellow-100 to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 animate-spin-fast " 
                         style = "font-size: 16px">
-                        <a href="./pages/homepage.html"> STRUCTURALLY INSULATED PANELS (SIPS)<br>
+                        <a href="homepage.html"> STRUCTURALLY INSULATED PANELS (SIPS)<br>
                         UNIVERSAL SELECTION APP FOR 'SIPS' 
                         ROOF AND FLOOR PANELS </a> </div></div>
                   
@@ -59,13 +75,13 @@
                         <div class = "px-1 py-2 flex justify-center" >       
                         <div class="max-w-sm h-18 p-4 t-6 font-medium rounded text-black  overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 bg-gradient-to-b  from-yellow-100 to-orange-500 w-96 shadow-xl shadow-yellow-600  border-orange-800 hover:text-white style" 
                         style = "font-size: 17px">
-                        <a href="./pages/homepage.html">Navigate to Home Page </a> </div></div>
+                        <a href="homepage.html">Navigate to Home Page </a> </div></div>
                      
                                          
                         
                   
                         </div>   </div>
-                        <script src="/js/ui.js"></script>
-                        <script src="/js/app.js"></script>
+                        <script src="js/ui.js"></script>
+                        <script src="js/app.js"></script>
         </body>
 </html>
