@@ -43,24 +43,24 @@ self.addEventListener('install', e => {
 
 // Call Active Event
 
-self.addEventListener('activate', e => {
-  console.log('Service Worker: Activated');
-  //remove unwanted caches
-  e.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache =>{
-          if(cache !== cacheName) {
-            console.log('Service worker: Clearing Old Cache');
-            return caches.delete(cache);
-          }
+// self.addEventListener('activate', e => {
+//   console.log('Service Worker: Activated');
+//   //remove unwanted caches
+//   e.waitUntil(
+//     caches.keys().then(cacheNames => {
+//       return Promise.all(
+//         cacheNames.map(cache =>{
+//           if(cache !== cacheName) {
+//             console.log('Service worker: Clearing Old Cache');
+//             return caches.delete(cache);
+//           }
 
-        })
-      )
-    })
-  );
+//         })
+//       )
+//     })
+//   );
 
-});
+// });
 
 fetch('https://struartapp.com/sip', {
   mode: 'no-cors'

@@ -1,7 +1,6 @@
   {
     "name": "SIP Panel Selection",
-    "short_name": "SIPApp",
-    "start_url": "https://www.struartapp.com/sip",
+      "start_url" : "/",
     "display": "standalone",
     "background_color": "#FFE9D2",
     "theme_color": "#FFE1C4",
@@ -43,7 +42,7 @@
 
       },
        {
-        "src": "img/180x7180app-icon.png",
+        "src": "img/180x180app-icon.png",
         "type": "image/png",
         "sizes": "180x180"
 
