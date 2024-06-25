@@ -1,6 +1,6 @@
   {
     "name": "SIP Panel Selection",
-      "start_url" : "/",
+      "start_url" : "/sip",
     "display": "standalone",
     "background_color": "#FFE9D2",
     "theme_color": "#FFE1C4",
